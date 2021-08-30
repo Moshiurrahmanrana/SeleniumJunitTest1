@@ -1,10 +1,13 @@
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,19 +21,24 @@ public class TestSeleniumJunit {
         ops.addArguments("--headed");
         driver = new FirefoxDriver(ops);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+
     }
 
-    @Test
+
     public void getTitle() {
-        driver.get("https://demoqa.com");
+        driver.get("https://www.google.com/");
         String title = driver.getTitle();
         System.out.println(title);
-        Assert.assertTrue(title.contains("ToolsQA"));
+        Assert.assertTrue(title.contains("Google"));
     }
-    @After
-    public void finishTest(){
-
+        @Test
+        public void testImplicit()  {
+            driver.get("https://opensource-demo.orangehrmlive.com");
+            driver.findElement(By.xpath("//input[@name = 'txtUsername']")).sendKeys("Admin");
+        }
+        @After
+        public void finishTest () {
         driver.close();
+        }
     }
-}

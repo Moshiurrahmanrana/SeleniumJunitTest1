@@ -21,8 +21,9 @@ dependencies {
 // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '3.141.59'
 
+
 }
 
-test {
-    useJUnitPlatform()
-}
+//test {
+//    useJUnitPlatform()
+//}
